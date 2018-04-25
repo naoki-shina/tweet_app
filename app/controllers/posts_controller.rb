@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_variable, only: [ :update, :edit, :show ]
+  before_action :set_variable, only: [ :update, :edit, :show, :destroy ]
 
   def index
     @posts = Post.all.order(created_at: :DESC)
@@ -24,6 +24,11 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     @post.save
     redirect_to("/posts/index")
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_index_path
   end
 
   private
