@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'posts/index'
   get 'posts/new', to: 'posts#new'
-  post 'posts/create', to: 'posts#create'
   get 'posts/:id', to: 'posts#show'
-  get 'posts/:id/edit', to: 'post#edit'
+  post 'posts/create', to: 'posts#create'
+  get 'posts/:id/edit', to: 'posts#edit'
+  post 'posts/:id/update', to: 'posts#update'
 
   get 'home/top'
   get 'home/about'
