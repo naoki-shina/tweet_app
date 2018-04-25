@@ -6,6 +6,12 @@ class PostsController < ApplicationController
   def new
   end
 
+  def create
+    @post = Post.new(content: params[:content])
+    @post.create
+    redirect_to posts_create_path
+  end
+
   def show
      @post = Post.find_by(id: params[:id])
   end
