@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post 'posts/:id/update', to: 'posts#update'
   delete 'posts/:id/destroy', to: 'posts#destroy'
 
+  get 'users/index', to: 'users#index'
+
   get 'home/top'
   get 'home/about'
   root 'home#top'
