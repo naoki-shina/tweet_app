@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_variable, only: [:show, :edit]
+  before_action :set_variables, only: [:edit, :update, :show]
   def index
     @users = User.all
   end
@@ -24,8 +24,19 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+    @user.name = params[:name]
+    @user.email = params[:email]
+    if @user.save
+      flash[:notice] = "ユーザー情報を編集しました"
+      redirect_to("/users/#{@user.id}/edit")
+    else
+      render("/users/edit")
+    end
+  end
+
   private
-  def set_valiable
+  def set_variables
     @user = User.find_by(id: params[:id])
   end
 end

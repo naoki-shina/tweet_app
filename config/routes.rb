@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post'users/create', to: 'users#create'
   get 'users/:id', to: 'users#show'
   get 'users/:id/edit', to: 'users#edit'
+  post 'users/:id/update', to: 'users#update'
 
   get 'home/top'
   get 'home/about'
