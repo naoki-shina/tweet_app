@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_variable, only: [:show, :edit]
   def index
     @users = User.all
   end
@@ -18,6 +19,13 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  private
+  def set_valiable
     @user = User.find_by(id: params[:id])
   end
 end

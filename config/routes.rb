@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'users/signup', to: 'users#new'
   post'users/create', to: 'users#create'
   get 'users/:id', to: 'users#show'
+  get 'users/:id/edit', to: 'users#edit'
 
   get 'home/top'
   get 'home/about'
