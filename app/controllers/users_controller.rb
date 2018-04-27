@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name: params[:name], email: params[:email])
+    @user = User.new(name: params[:name], email: params[:email], image_name: params[:image_name])
     if @user.save
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to users_index_path
