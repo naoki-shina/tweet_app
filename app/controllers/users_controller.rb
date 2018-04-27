@@ -7,6 +7,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def create
+    @user = User.new(name: params[:name], email: params[:email])
+    if @user.save
+      redirect_to users_index_path
+    end
+  end
+
   def show
     @user = User.find_by(id: params[:id])
   end

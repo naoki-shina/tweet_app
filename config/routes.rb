@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'users/index', to: 'users#index'
   get 'users/signup', to: 'users#new'
+  post'users/create', to: 'users#create'
   get 'users/:id', to: 'users#show'
 
   get 'home/top'
