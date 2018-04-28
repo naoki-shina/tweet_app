@@ -17,8 +17,9 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
+      session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
-      redirect_to("/posts/index")
+      redirect_to posts_index_path
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
@@ -30,14 +31,15 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
-    redirect_to("/login")
+    redirect_to users_login_path
   end
 
   def create
     @user = User.new(
-      name: params[:name], email: params[:email], image_name: "LGTM.jpg"
+      name: params[:name], email: params[:email], image_name: "LGTM.jpg", password: params[:password]
       )
     if @user.save
+      session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to users_index_path
     else
@@ -76,7 +78,7 @@ class UsersController < ApplicationController
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
-      redirect_to ("/posts/index")
+      redirect_to posts_index_path
     end
   end
 end
