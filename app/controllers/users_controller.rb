@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def login_form
+  end
+
   def create
     @user = User.new(
       name: params[:name], email: params[:email], image_name: "LGTM.jpg"

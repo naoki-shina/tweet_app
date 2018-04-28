@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'users/index', to: 'users#index'
   get 'users/signup', to: 'users#new'
+  get 'users/login', to: 'users#login_form'
   post'users/create', to: 'users#create'
   get 'users/:id', to: 'users#show'
   get 'users/:id/edit', to: 'users#edit'
