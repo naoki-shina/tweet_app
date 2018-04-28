@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/login")
+  end
+
   def create
     @user = User.new(
       name: params[:name], email: params[:email], image_name: "LGTM.jpg"
