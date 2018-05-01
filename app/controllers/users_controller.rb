@@ -70,6 +70,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def likes
+
+  end
+
   private
   def set_variables
     @user = User.find_by(id: params[:id])

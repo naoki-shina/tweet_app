@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show'
   get 'users/:id/edit', to: 'users#edit'
   post 'users/:id/update', to: 'users#update'
+  get 'users/likes', to: 'users#likes'
 
   # for like action
   post 'likes/:post_id/create', to: 'likes#create'
