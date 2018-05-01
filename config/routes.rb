@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   # for like action
   post 'likes/:post_id/create', to: 'likes#create'
+  delete 'likes/:post_id/destroy', to: 'likes#destroy'
 
   # for home action
   get 'home/top'
