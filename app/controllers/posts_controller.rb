@@ -5,7 +5,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :DESC)
-    # binding.pry
   end
 
   def new
