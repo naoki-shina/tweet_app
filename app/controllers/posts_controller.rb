@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
   def show
     @user = @post.user
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   def edit
